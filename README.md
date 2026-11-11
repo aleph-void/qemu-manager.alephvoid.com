@@ -33,7 +33,7 @@ The site is static HTML and CSS with no build step; `styles.css` follows the sha
 python3 -m http.server 8000
 ```
 
-Pushing to `main` deploys to the `gh-pages` branch via `.github/workflows/deploy.yml`.
+Pushing to `main` deploys to GitHub Pages with GitHub Actions (`.github/workflows/deploy.yml`).
 
 ---
 
