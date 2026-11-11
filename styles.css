@@ -1608,3 +1608,29 @@ code {
   .qm-side { display: none; }
   .req-table th, .req-table td { padding: 12px 14px; }
 }
+
+/* Screenshot gallery (16:9 app captures) */
+.shot-grid.shot-grid--qm .shot img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top left;
+}
+.shot.shot--featured {
+  max-width: 960px;
+  margin: 0 auto 24px;
+}
+.shot.shot--featured img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+.shot.shot--featured figcaption { text-align: center; }
+.shot-grid.shot-grid--qm {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 960px;
+  margin: 0 auto;
+}
+@media (max-width: 480px) {
+  .shot-grid.shot-grid--qm { grid-template-columns: 1fr; }
+}

@@ -42,6 +42,7 @@
       </a>
       <div class="nav-links">
         <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#architectures">Architectures</a>
         <a href="#requirements">Requirements</a>
@@ -57,6 +58,7 @@
     </div>
     <div class="mobile-menu" id="mobile-menu">
       <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
       <a href="#how-it-works">How It Works</a>
       <a href="#architectures">Architectures</a>
       <a href="#requirements">Requirements</a>
@@ -246,6 +248,41 @@
           <h3>The Command Line, Visible</h3>
           <p>See the exact QEMU command line for any VM and add your own extra arguments. Start, pause, resume, reset, shut down or force stop over QMP, with live status and the QEMU log.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section id="screenshots" class="demos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// Screenshots</span>
+        <h2>See It <span class="text-gradient">in Action</span></h2>
+        <p>The VM library, embedded console, hardware editor and snapshots, captured from the app. Click any shot to enlarge.</p>
+      </div>
+
+      <figure class="shot shot--featured">
+        <img src="assets/screenshots/console.png" alt="QEMU Manager embedded console showing Alpine Linux booting, with the VM library in the sidebar" />
+        <figcaption>Embedded console &mdash; Alpine Linux booting, with lifecycle controls over QMP</figcaption>
+      </figure>
+
+      <div class="shot-grid shot-grid--qm">
+        <figure class="shot">
+          <img src="assets/screenshots/library.png" alt="QEMU Manager welcome screen with five virtual machines and the detected QEMU version" loading="lazy" />
+          <figcaption>VM library &amp; QEMU detection</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/screenshots/hardware.png" alt="QEMU Manager hardware list for a Windows 11 VM with UEFI, TPM 2.0 and an NVMe disk" loading="lazy" />
+          <figcaption>Hardware list: UEFI, TPM 2.0, NVMe</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/screenshots/snapshots.png" alt="QEMU Manager snapshots tab with two live snapshots that include memory" loading="lazy" />
+          <figcaption>Live snapshots with memory</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/screenshots/architectures.png" alt="QEMU Manager new VM form with the guest architecture menu open" loading="lazy" />
+          <figcaption>Pick from 18 guest architectures</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -512,6 +549,7 @@
         <div class="footer-links">
           <a href="index.html">Home</a>
           <a href="#features">Features</a>
+          <a href="#screenshots">Screenshots</a>
           <a href="#how-it-works">How It Works</a>
           <a href="#requirements">Requirements</a>
           <a href="#faq">FAQ</a>
@@ -524,6 +562,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
 
   <script src="main.js"></script>
 </body>
