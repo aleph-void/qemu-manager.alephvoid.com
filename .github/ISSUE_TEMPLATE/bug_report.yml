@@ -1,0 +1,193 @@
+name: Bug report
+description: Something in QEMU Manager isn't working, or a VM won't start or behaves wrongly.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. The more of this you fill in, the faster we can reproduce and fix it.
+
+        > [!WARNING]
+        > Issues are public. **Never post your license key.** For purchase, refund or license-key problems, email support@alephvoid.com instead.
+
+        Before filing, please open the app's **QEMU** page and confirm it detects your QEMU and its version, and [search existing issues](https://github.com/aleph-void/qemu-manager.alephvoid.com/issues?q=is%3Aissue) in case it's already reported. Common host setup problems are covered on the [support page](https://qemu-manager.alephvoid.com/support.html#host-setup).
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the problem, including any error message shown by the app.
+      placeholder: When I start my Windows 11 VM, the console stays black and the app shows "QEMU exited with code 1".
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The exact steps that lead to the problem, starting from a fresh app launch if possible.
+      placeholder: |
+        1. Create a new VM with architecture x86_64, UEFI firmware and a TPM
+        2. Attach a Windows 11 ISO
+        3. Click Start
+        4. ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the app is affected? Pick all that apply.
+      multiple: true
+      options:
+        - QEMU detection / settings
+        - Creating or editing a VM (hardware list)
+        - Starting, stopping or pausing a VM
+        - Console (noVNC)
+        - Firmware (UEFI / BIOS) or TPM 2.0
+        - Disks and storage
+        - Networking (user, bridge, TAP, vmnet)
+        - Snapshots
+        - Clones (full / linked)
+        - OVA / OVF import or export
+        - PCI passthrough
+        - USB passthrough
+        - Shared folders (virtio-fs / 9p)
+        - Performance / acceleration
+        - Licensing / activation
+        - Installation or updates
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: QEMU Manager version
+      description: Shown in the app's About dialog.
+      placeholder: "1.2.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: host-os
+    attributes:
+      label: Host operating system
+      options:
+        - macOS
+        - Windows
+        - Linux
+    validations:
+      required: true
+
+  - type: input
+    id: host-os-version
+    attributes:
+      label: Host OS version / distribution
+      placeholder: "macOS 15.4, Windows 11 24H2, Ubuntu 24.04, Fedora 41, ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: host-cpu
+    attributes:
+      label: Host CPU architecture
+      options:
+        - x86_64 (Intel / AMD)
+        - ARM64 (Apple Silicon)
+        - ARM64 (other)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: Package
+      description: How did you install QEMU Manager?
+      options:
+        - macOS .dmg
+        - Windows installer
+        - Linux AppImage
+        - Linux .deb
+        - Linux .rpm
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: qemu-version
+    attributes:
+      label: QEMU version
+      description: Shown on the app's QEMU page, or run `qemu-system-x86_64 --version`. Mention where QEMU came from (Homebrew, apt, dnf, qemu.weilnetz.de, built from source, ...).
+      placeholder: "QEMU 9.2.0 (Homebrew)"
+    validations:
+      required: true
+
+  - type: input
+    id: guest-arch
+    attributes:
+      label: Guest architecture and machine type
+      placeholder: "x86_64 / q35, aarch64 / virt, riscv64 / virt, ..."
+    validations:
+      required: true
+
+  - type: input
+    id: guest-os
+    attributes:
+      label: Guest operating system
+      placeholder: "Windows 11 24H2, Debian 12, FreeBSD 14, ..."
+
+  - type: dropdown
+    id: accel
+    attributes:
+      label: Acceleration in use
+      description: Shown in the VM's QEMU command line (`-accel ...`).
+      options:
+        - KVM (Linux)
+        - Hypervisor.framework / HVF (macOS)
+        - WHPX (Windows)
+        - TCG (emulation)
+        - Not sure
+
+  - type: textarea
+    id: command-line
+    attributes:
+      label: QEMU command line
+      description: Copy the exact command line from the VM page. Remove any paths or names you'd rather keep private.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: qemu-log
+    attributes:
+      label: QEMU log
+      description: Copy the QEMU log from the VM page. For long logs, the last 100 lines or so is usually enough.
+      render: text
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots and additional context
+      description: Screenshots of the error, host setup details (e.g. kvm group membership, IOMMU groups, bridge.conf, TAP adapter), whether this worked in an earlier version, and anything else that might help.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this hasn't been reported yet.
+          required: true
+        - label: The app's QEMU page detects my QEMU installation.
+          required: false
+        - label: I have not included my license key or other secrets in this issue.
+          required: true

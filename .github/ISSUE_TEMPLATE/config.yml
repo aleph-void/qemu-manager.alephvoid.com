@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Purchase, refund or license-key problem
+    url: mailto:support@alephvoid.com
+    about: Issues are public — email us for anything involving your purchase or license key. Never post your key here.
+  - name: Troubleshooting guide
+    url: https://qemu-manager.alephvoid.com/support.html#host-setup
+    about: Fixes for common host setup issues (QEMU not found, acceleration, TPM, networking, passthrough).
