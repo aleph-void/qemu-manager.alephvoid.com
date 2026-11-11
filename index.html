@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aleph Void QEMU Manager &mdash; Virtual Machines Without the Command Line</title>
+  <meta name="description" content="Aleph Void QEMU Manager is a desktop app for creating, configuring and running QEMU virtual machines on macOS, Linux and Windows. 18 guest architectures, UEFI and TPM 2.0, snapshots, clones, OVA import/export, PCI passthrough and an embedded console." />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg" />
+  <link rel="icon" type="image/png" href="assets/img/app-icon.png" sizes="256x256" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aleph Void QEMU Manager" />
+  <meta property="og:url" content="https://qemu-manager.alephvoid.com/" />
+  <meta property="og:title" content="Aleph Void QEMU Manager — Virtual Machines Without the Command Line" />
+  <meta property="og:description" content="Create, configure and run QEMU virtual machines on macOS, Linux and Windows. 18 guest architectures, UEFI, TPM 2.0, snapshots, clones, OVA appliances and an embedded console." />
+  <meta property="og:image" content="https://qemu-manager.alephvoid.com/assets/img/app-icon.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="256" />
+  <meta property="og:image:height" content="256" />
+  <meta property="og:image:alt" content="QEMU Manager icon" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Aleph Void QEMU Manager — Virtual Machines Without the Command Line" />
+  <meta name="twitter:description" content="A desktop manager for QEMU virtual machines on macOS, Linux and Windows. 18 guest architectures, snapshots, clones, OVA import/export and an embedded console." />
+  <meta name="twitter:image" content="https://qemu-manager.alephvoid.com/assets/img/app-icon.png" />
+  <meta name="twitter:image:alt" content="QEMU Manager icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <img class="nav-logo" src="assets/img/app-icon.png" alt="QEMU Manager" />
+        <span>QEMU Manager</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#architectures">Architectures</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#faq">FAQ</a>
+        <a href="support.html">Support</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#install" class="btn btn-sm btn-primary">Get QEMU Manager</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#architectures">Architectures</a>
+      <a href="#requirements">Requirements</a>
+      <a href="#faq">FAQ</a>
+      <a href="support.html">Support</a>
+      <a href="#install" class="btn btn-primary">Get QEMU Manager</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">// QEMU &middot; macOS, Linux &amp; Windows</div>
+        <h1>QEMU, Without the<br /><span class="text-gradient">Command Line</span></h1>
+        <p class="hero-subtitle">
+          QEMU can emulate almost anything, but driving it means hand-writing long command lines.
+          Aleph Void QEMU Manager is a desktop app that creates, configures and runs QEMU virtual
+          machines for you, from a Windows&nbsp;11 guest with TPM&nbsp;2.0 to a RISC-V or IBM&nbsp;Z
+          board, with the same app on every desktop OS.
+        </p>
+        <p class="hero-claim">
+          <strong>Nothing hidden:</strong> view the exact QEMU command line for any VM and add your
+          own arguments. Each VM is a portable folder you can copy, back up or move.
+        </p>
+        <div class="hero-actions">
+          <a href="#install" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Get QEMU Manager
+          </a>
+          <a href="#features" class="btn btn-outline btn-lg">Learn More</a>
+        </div>
+        <div class="hero-platforms">
+          <span class="hero-platforms-label">Runs on</span>
+          <div class="platform-icons">
+            <div class="platform-icon" title="macOS (Apple Silicon and Intel)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              <span>macOS</span>
+            </div>
+            <div class="platform-icon" title="Windows (x64 and ARM64)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.6l7.4-1v7H3V5.6zm8.4-1.2L21 3v8.6h-9.6V4.4zM3 12.6h7.4v7l-7.4-1v-6zm8.4 0H21V21l-9.6-1.4v-7z"/></svg>
+              <span>Windows</span>
+            </div>
+            <div class="platform-icon" title="Linux (x64 and ARM64)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="6 9 9 12 6 15"/><line x1="12" y1="15" x2="17" y2="15"/></svg>
+              <span>Linux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Mockup -->
+      <div class="hero-visual">
+        <div class="plugin-mockup qm-mockup" aria-hidden="true">
+          <div class="plugin-header">
+            <div class="plugin-dots"><span></span><span></span><span></span></div>
+            <span class="plugin-title">QEMU Manager &middot; win11-dev</span>
+          </div>
+          <div class="qm-app">
+            <nav class="qm-side">
+              <div class="qm-brand"><img src="assets/img/app-icon.png" alt="" /><span>QEMU Manager<small>ALEPH VOID</small></span></div>
+              <div class="qm-new">+ New VM</div>
+              <div class="qm-vm active"><span class="qm-dot on"></span>win11-dev<small>x86_64</small></div>
+              <div class="qm-vm"><span class="qm-dot on"></span>debian-arm<small>aarch64</small></div>
+              <div class="qm-vm"><span class="qm-dot paused"></span>fedora-riscv<small>riscv64</small></div>
+              <div class="qm-vm"><span class="qm-dot"></span>freebsd-14<small>x86_64</small></div>
+              <div class="qm-vm"><span class="qm-dot"></span>s390x-lab<small>s390x</small></div>
+            </nav>
+            <div class="qm-main">
+              <div class="qm-toolbar">
+                <span class="qm-title">win11-dev</span>
+                <span class="qm-chip accent">KVM</span>
+                <span class="qm-chip">Pause</span>
+                <span class="qm-chip">Snapshot</span>
+                <span class="qm-chip">Shut down</span>
+              </div>
+              <div class="qm-console">
+                <div><span class="dim">[qmp]</span> connected &middot; status <span class="ok">running</span></div>
+                <div><span class="dim">[uefi]</span> OVMF &middot; Secure Boot on</div>
+                <div><span class="dim">[tpm]</span> swtpm 2.0 ready</div>
+                <div><span class="dim">[disk]</span> virtio-blk0 &middot; system.qcow2 &middot; 128 GiB</div>
+                <div><span class="dim">[net]</span> user NAT &middot; 3389 &rarr; 3389</div>
+                <div><span class="dim">[vnc]</span> console attached <span class="cursor"></span></div>
+              </div>
+              <div class="qm-stats">
+                <div class="qm-stat"><small>CPU</small><span>8 vCPU</span></div>
+                <div class="qm-stat"><small>Memory</small><span>16 GiB</span></div>
+                <div class="qm-stat"><small>Snapshots</small><span>4</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// Features</span>
+        <h2>All of QEMU, <span class="text-gradient">in One Window</span></h2>
+        <p>Build a VM from a hardware list, start it, and watch it boot in an embedded console. QEMU Manager writes the command line, supervises the helpers and keeps every VM in its own folder.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+          </div>
+          <h3>18 Guest Architectures</h3>
+          <p>x86, ARM, RISC-V, POWER, MIPS, LoongArch, IBM&nbsp;Z, SPARC, m68k, Alpha and PA-RISC. Pick the machine type and CPU model from the lists your installed QEMU reports, with descriptions, or type your own.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </div>
+          <h3>A Real Hardware List</h3>
+          <p>Add and remove devices the way Proxmox does: CPUs and memory, BIOS or UEFI, virtio, NVMe, SATA, IDE and USB disks, ISOs, boot order, sound cards, serial ports and host USB devices.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>UEFI &amp; TPM 2.0</h3>
+          <p>Give a VM a virtual TPM emulated by <code>swtpm</code>, for Windows&nbsp;11 or BitLocker. TPM keys and UEFI variables live in the VM's folder and carry over to clones.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>
+          </div>
+          <h3>Snapshots That Include Memory</h3>
+          <p>Snapshot a running VM and its memory is saved too, so restoring resumes exactly where it was, even after a shutdown. Snapshots cover every qcow2 disk plus the UEFI variable store.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <h3>Full &amp; Linked Clones</h3>
+          <p>Full clones copy every disk. Linked clones are instant copy-on-write overlays on the original disks, so ten test machines cost almost no space.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>OVA / OVF Appliances</h3>
+          <p>Import appliances from VMware, VirtualBox and other tools. Manifests are checked; CPUs, memory, disk controllers, NICs, MACs and UEFI are mapped; disks convert to qcow2. Exports round-trip exactly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Hardware Acceleration</h3>
+          <p>Uses KVM on Linux, Hypervisor.framework on macOS and WHPX on Windows automatically when the guest matches the host CPU, and falls back to TCG emulation when it doesn't.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Embedded Console</h3>
+          <p>An in-app display built on noVNC, with a fresh random VNC password for every boot. Prefer a native QEMU window or headless mode? Both are one setting away.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h6v6H4zM14 14h6v6h-6z"/><path d="M10 7h4a3 3 0 0 1 3 3v4M14 17h-4a3 3 0 0 1-3-3v-4"/></svg>
+          </div>
+          <h3>PCI &amp; USB Passthrough</h3>
+          <p>Pass a GPU or other PCIe device to a VM with VFIO on Linux. The app shows each device's driver and IOMMU group and tells you what to fix before it can be passed through.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Shared Folders</h3>
+          <p>Share host folders with the guest over virtio-fs (Linux hosts) or 9p (Linux and macOS hosts). The app shows the mount command to run in the guest.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="M12 8v3M12 11l-5.5 5.5M12 11l5.5 5.5"/></svg>
+          </div>
+          <h3>Networking That Fits the Host</h3>
+          <p>User-mode NAT with port forwarding everywhere, bridged and TAP networking on Linux, TAP-Windows adapters on Windows and vmnet on macOS. Only modes your host supports are offered.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          </div>
+          <h3>The Command Line, Visible</h3>
+          <p>See the exact QEMU command line for any VM and add your own extra arguments. Start, pause, resume, reset, shut down or force stop over QMP, with live status and the QEMU log.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// Architecture</span>
+        <h2>How It <span class="text-gradient">Works</span></h2>
+        <p>QEMU Manager doesn't replace QEMU. It drives the QEMU you have installed, keeps each VM in a self-contained folder, and talks to the running machine over QMP.</p>
+      </div>
+      <div class="modes-grid">
+        <div class="mode-card">
+          <div class="mode-number">1</div>
+          <h3>Your QEMU</h3>
+          <p class="mode-desc">The app finds QEMU on your <code>PATH</code> and in standard install locations, reads which machines and CPUs it supports, and can help you install or update it.</p>
+          <ul class="mode-details">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Use your package manager's build
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Or point it at a custom folder
+            </li>
+          </ul>
+        </div>
+        <div class="mode-card">
+          <div class="mode-number">2</div>
+          <h3>Portable VM Bundles</h3>
+          <p class="mode-desc">Every VM is a folder holding <code>vm.json</code>, its disks, UEFI variables and TPM state. Copy it to another machine, back it up, or keep it in a synced drive.</p>
+          <ul class="mode-details">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              No hidden database
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Plain qcow2 disks
+            </li>
+          </ul>
+        </div>
+        <div class="mode-card">
+          <div class="mode-number">3</div>
+          <h3>Supervised Processes</h3>
+          <p class="mode-desc">QEMU, <code>swtpm</code> and <code>virtiofsd</code> are spawned directly, never through a shell. VNC and QMP listen only on loopback or a private socket.</p>
+          <ul class="mode-details">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Crash and exit handling
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Password-protected console
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="workflow-steps">
+        <h3 class="workflow-title">Getting Started</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Install QEMU</h4>
+              <p>Use Homebrew, apt, dnf, pacman or winget. QEMU Manager detects it automatically.</p>
+            </div>
+          </div>
+          <div class="step-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Create</h4>
+              <p>Pick an architecture and an installer ISO, or import an OVA appliance.</p>
+            </div>
+          </div>
+          <div class="step-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Boot</h4>
+              <p>Start the VM and install the guest OS in the embedded console.</p>
+            </div>
+          </div>
+          <div class="step-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Snapshot &amp; Clone</h4>
+              <p>Save a known-good state, then spin up linked clones to experiment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architectures -->
+  <section id="architectures" class="hardware">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// Guests</span>
+        <h2>Emulate <span class="text-gradient">Almost Anything</span></h2>
+        <p>Every guest ISA your QEMU build includes, with devices attached on each machine's own bus: PCI, IBM&nbsp;Z channel I/O, or virtio-mmio.</p>
+      </div>
+      <div class="hardware-grid">
+        <div class="hardware-item">
+          <div class="name">x86 &amp; x86-64</div>
+          <div class="label">KVM, HVF or WHPX on matching hosts</div>
+        </div>
+        <div class="hardware-item">
+          <div class="name">ARM &amp; AArch64</div>
+          <div class="label">Accelerated on Apple Silicon &amp; ARM Linux</div>
+        </div>
+        <div class="hardware-item">
+          <div class="name">RISC-V</div>
+          <div class="label">32- and 64-bit</div>
+        </div>
+        <div class="hardware-item">
+          <div class="name">POWER</div>
+          <div class="label">pseries, with TPM 2.0</div>
+        </div>
+        <div class="hardware-item">
+          <div class="name">IBM Z</div>
+          <div class="label">s390x with channel I/O</div>
+        </div>
+        <div class="hardware-item">
+          <div class="name">MIPS &amp; LoongArch</div>
+          <div class="label">Big- and little-endian</div>
+        </div>
+        <div class="hardware-item">
+          <div class="name">SPARC</div>
+          <div class="label">32- and 64-bit</div>
+        </div>
+        <div class="hardware-item">
+          <div class="name">m68k, Alpha &amp; PA-RISC</div>
+          <div class="label">Retro and research systems</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section id="requirements" class="docs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// Requirements</span>
+        <h2>Bring Your Own <span class="text-gradient">QEMU</span></h2>
+        <p>QEMU is not bundled. Install it with your platform's package manager; QEMU Manager searches <code>PATH</code> and standard locations, or you can set the folder in Settings.</p>
+      </div>
+      <div class="req-table-wrap">
+        <table class="req-table">
+          <thead>
+            <tr><th>Platform</th><th>Install command</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>macOS</td><td><code>brew install qemu swtpm</code></td></tr>
+            <tr><td>Debian / Ubuntu</td><td><code>sudo apt install qemu-system qemu-utils ovmf virtiofsd swtpm</code></td></tr>
+            <tr><td>Fedora</td><td><code>sudo dnf install qemu-kvm qemu-img edk2-ovmf virtiofsd swtpm</code></td></tr>
+            <tr><td>Arch</td><td><code>sudo pacman -S qemu-full edk2-ovmf virtiofsd swtpm</code></td></tr>
+            <tr><td>Windows</td><td><code>winget install SoftwareFreedomConservancy.QEMU</code> or the installer from <a href="https://www.qemu.org/download/" target="_blank" rel="noopener">qemu.org</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="install-note">On Linux, add yourself to the <code>kvm</code> group for hardware acceleration. Bridged networking, PCI passthrough and vmnet need some host setup; see the <a href="support.html#host-setup">host setup notes</a>.</p>
+    </div>
+  </section>
+
+  <!-- Install -->
+  <section id="install" class="install">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// Get QEMU Manager</span>
+        <h2>Download <span class="text-gradient">QEMU Manager</span></h2>
+        <p>One license covers every platform. Signed and notarized on macOS, signed on Windows, with SHA-256 checksums for every package.</p>
+      </div>
+      <div class="install-grid install-grid--3">
+        <a href="https://store.alephvoid.com/l/qemu-manager" class="install-card">
+          <svg class="install-platform-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          <h3>macOS</h3>
+          <p>Apple Silicon &amp; Intel &middot; .dmg</p>
+          <span class="install-btn">Aleph Void Store</span>
+        </a>
+        <a href="https://store.alephvoid.com/l/qemu-manager" class="install-card">
+          <svg class="install-platform-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.6l7.4-1v7H3V5.6zm8.4-1.2L21 3v8.6h-9.6V4.4zM3 12.6h7.4v7l-7.4-1v-6zm8.4 0H21V21l-9.6-1.4v-7z"/></svg>
+          <h3>Windows</h3>
+          <p>x64 &amp; ARM64 &middot; installer</p>
+          <span class="install-btn">Aleph Void Store</span>
+        </a>
+        <a href="https://store.alephvoid.com/l/qemu-manager" class="install-card">
+          <svg class="install-platform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="6 9 9 12 6 15"/><line x1="12" y1="15" x2="17" y2="15"/></svg>
+          <h3>Linux</h3>
+          <p>x64 &amp; ARM64 &middot; AppImage, .deb, .rpm</p>
+          <span class="install-btn">Aleph Void Store</span>
+        </a>
+      </div>
+      <p class="install-note">Your license key works on any OS and activates on up to 10 machines. After the first activation the app works offline.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// FAQ</span>
+        <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Does QEMU Manager include QEMU?</summary>
+          <p>No. QEMU is a separate program (GPL-2.0) that QEMU Manager runs as an external process; it is not linked or distributed with the app. Install it with your platform's package manager (see <a href="#requirements">Requirements</a>), and the app's QEMU page can help you install or update it.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which host operating systems are supported?</summary>
+          <p>macOS (Apple Silicon and Intel), Windows (x64 and ARM64) and Linux (x64 and ARM64). Some features depend on the host: PCI passthrough and virtio-fs are Linux-only, 9p shared folders need a Linux or macOS host, and TPM 2.0 is unavailable on Windows hosts because QEMU's Windows build has no TPM emulator backend.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I run Windows 11 in it?</summary>
+          <p>Yes. Windows&nbsp;11 needs UEFI firmware and a TPM&nbsp;2.0. Install <code>swtpm</code> on a Linux or macOS host, choose UEFI and add a TPM in the VM's hardware list. On an x86-64 host with KVM, Hypervisor.framework or WHPX it runs with hardware acceleration.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Will it be fast, or is everything emulated?</summary>
+          <p>When the guest architecture matches your CPU, QEMU Manager picks the host's accelerator automatically: KVM on Linux, Hypervisor.framework on macOS, WHPX on Windows. Other architectures run under TCG emulation, which is slower but works everywhere.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I bring my VMware or VirtualBox machines over?</summary>
+          <p>Yes, export them as OVA or OVF and import them. QEMU Manager checks the manifest, maps CPUs, memory, disk controllers, NICs, MAC addresses and UEFI, and converts the disks to qcow2. It can also export OVAs with stream-optimized VMDK disks and a SHA-256 manifest.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where are my VMs stored?</summary>
+          <p>Each VM is a folder (a "bundle") holding <code>vm.json</code>, its disks, UEFI variables and TPM state. Nothing is kept in a hidden database, so you can back up, copy or move a VM like any other folder.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How does licensing work?</summary>
+          <p>Buy once from the Aleph Void Store and you get a license key that works on macOS, Windows and Linux, on up to 10 machines. The key is checked with Gumroad the first time, then periodically; the app keeps working offline for weeks between checks, and a network hiccup never locks a running session.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it collect any data?</summary>
+          <p>No analytics or telemetry. The app only goes online to verify your license key with Gumroad and, when you ask it to, to check for QEMU updates. See the <a href="privacy.html">Privacy Policy</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I report a bug?</summary>
+          <p>Open an issue on our <a href="https://github.com/aleph-void/qemu-manager.alephvoid.com/issues" target="_blank" rel="noopener">GitHub issue tracker</a>, or see the <a href="support.html">Support page</a>. Include your host OS, QEMU version, the guest architecture and the steps to reproduce.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/img/app-icon.png" alt="QEMU Manager" />
+          <span>QEMU Manager</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#requirements">Requirements</a>
+          <a href="#faq">FAQ</a>
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="https://github.com/aleph-void/qemu-manager.alephvoid.com/issues" target="_blank" rel="noopener">Report a Bug</a>
+          <a href="https://alephvoid.com" target="_blank" rel="noopener">Aleph Void</a>
+        </div>
+        <p class="footer-copy">Created by <a href="https://alephvoid.com" target="_blank" rel="noopener">Aleph Void LLC</a>. &copy; 2026 Aleph Void QEMU Manager. QEMU is a trademark of Fabrice Bellard; QEMU Manager is an independent project, not affiliated with the QEMU project.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

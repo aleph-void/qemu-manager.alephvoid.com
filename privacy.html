@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy &mdash; Aleph Void QEMU Manager</title>
+  <meta name="description" content="Privacy policy for Aleph Void QEMU Manager: no analytics or telemetry; the app only contacts Gumroad to verify your license and, on request, checks for QEMU updates." />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg" />
+  <link rel="icon" type="image/png" href="assets/img/app-icon.png" sizes="256x256" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aleph Void QEMU Manager" />
+  <meta property="og:url" content="https://qemu-manager.alephvoid.com/privacy.html" />
+  <meta property="og:title" content="Privacy Policy — Aleph Void QEMU Manager" />
+  <meta property="og:description" content="Privacy policy for Aleph Void QEMU Manager: no analytics or telemetry; the app only contacts Gumroad to verify your license and, on request, checks for QEMU updates." />
+  <meta property="og:image" content="https://qemu-manager.alephvoid.com/assets/img/app-icon.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="256" />
+  <meta property="og:image:height" content="256" />
+  <meta property="og:image:alt" content="QEMU Manager icon" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Privacy Policy — Aleph Void QEMU Manager" />
+  <meta name="twitter:description" content="QEMU Manager has no analytics or telemetry." />
+  <meta name="twitter:image" content="https://qemu-manager.alephvoid.com/assets/img/app-icon.png" />
+  <meta name="twitter:image:alt" content="QEMU Manager icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img class="nav-logo" src="assets/img/app-icon.png" alt="QEMU Manager" />
+        <span>QEMU Manager</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#architectures">Architectures</a>
+        <a href="index.html#requirements">Requirements</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="support.html">Support</a>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html#install" class="btn btn-sm btn-primary">Get QEMU Manager</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#architectures">Architectures</a>
+      <a href="index.html#requirements">Requirements</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="support.html">Support</a>
+      <a href="index.html#install" class="btn btn-primary">Get QEMU Manager</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">// Privacy Policy</div>
+        <h1>Your VMs Stay<br /><span class="text-gradient">On Your Machine</span></h1>
+        <p class="hero-subtitle">
+          QEMU Manager has no analytics, no telemetry and no account. It goes online for two
+          things only: checking your license key, and, when you ask, looking for QEMU updates.
+        </p>
+        <p class="hero-platforms-label">Last updated: November 11, 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="docs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// Data Handling</span>
+        <h2>What Leaves <span class="text-gradient">Your Computer</span></h2>
+      </div>
+      <div class="docs-grid">
+        <div class="doc-card">
+          <h3>License verification (Gumroad)</h3>
+          <div class="doc-content">
+            <p>Release builds verify your license key with Gumroad's API (<code>api.gumroad.com</code>). The request contains the <strong>product ID</strong> and your <strong>license key</strong>, nothing else.</p>
+            <p>This happens on first activation, then about once a week. Gumroad receives your IP address as part of any network request and processes it under <a href="https://gumroad.com/privacy" target="_blank" rel="noopener">its own privacy policy</a>.</p>
+            <p>To bind the activation to one computer, the app stores a <strong>salted hash</strong> of the operating system's machine ID in a local file. That hash is never sent anywhere.</p>
+          </div>
+        </div>
+        <div class="doc-card">
+          <h3>QEMU update checks</h3>
+          <div class="doc-content">
+            <p>When you open the QEMU page or click <strong>Check for updates</strong>, the app looks up the latest QEMU release:</p>
+            <ul>
+              <li><strong>macOS:</strong> Homebrew's formula API (<code>formulae.brew.sh</code>).</li>
+              <li><strong>Windows:</strong> the QEMU for Windows download index (<code>qemu.weilnetz.de</code>).</li>
+            </ul>
+            <p>These are plain page downloads; no information about you or your VMs is sent.</p>
+          </div>
+        </div>
+        <div class="doc-card">
+          <h3>What we don't collect</h3>
+          <div class="doc-content">
+            <p>No analytics, crash reporting or usage tracking. The app does not send your name, email, VM names, VM configurations, disk images, console contents or file paths to Aleph Void or anyone else.</p>
+            <p>The embedded console, VNC and QMP connections listen only on loopback or a private local socket, and the VNC password changes on every boot.</p>
+          </div>
+        </div>
+        <div class="doc-card">
+          <h3>What's stored locally</h3>
+          <div class="doc-content">
+            <ul>
+              <li>Your VMs, in the folders you choose.</li>
+              <li>App settings, recent ISO images and your license key and activation cache, in the app's data folder (<code>~/Library/Application Support/QEMU Frontend</code>, <code>%APPDATA%\QEMU Frontend</code> or <code>~/.config/QEMU Frontend</code>).</li>
+              <li>Application logs, which stay on your computer unless you attach them to an issue yourself.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="doc-card">
+          <h3>Purchases</h3>
+          <div class="doc-content">
+            <p>QEMU Manager is sold through the Aleph Void Store, powered by Gumroad. Gumroad handles payment and receives the details you give at checkout. Aleph Void receives the order details Gumroad shares with sellers, such as your email address, and uses them only to provide support and deliver your license.</p>
+          </div>
+        </div>
+        <div class="doc-card">
+          <h3>This website &amp; contact</h3>
+          <div class="doc-content">
+            <p>This site is hosted on GitHub Pages and loads fonts from Google Fonts; both receive standard request data such as your IP address. The site sets no cookies and runs no analytics.</p>
+            <p>Questions about this policy: <a href="mailto:support@alephvoid.com?subject=QEMU%20Manager%20privacy">support@alephvoid.com</a>. If the policy changes, the date above will change with it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/img/app-icon.png" alt="QEMU Manager" />
+          <span>QEMU Manager</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="index.html#requirements">Requirements</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="https://github.com/aleph-void/qemu-manager.alephvoid.com/issues" target="_blank" rel="noopener">Report a Bug</a>
+          <a href="https://alephvoid.com" target="_blank" rel="noopener">Aleph Void</a>
+        </div>
+        <p class="footer-copy">Created by <a href="https://alephvoid.com" target="_blank" rel="noopener">Aleph Void LLC</a>. &copy; 2026 Aleph Void QEMU Manager. QEMU is a trademark of Fabrice Bellard; QEMU Manager is an independent project, not affiliated with the QEMU project.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
