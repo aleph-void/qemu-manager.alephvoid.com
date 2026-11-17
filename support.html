@@ -213,10 +213,17 @@
             </ul>
           </div>
         </div>
-        <div class="doc-card">
+        <div class="doc-card" id="windows-tpm">
           <h3>TPM 2.0 isn't offered</h3>
           <div class="doc-content">
-            <p>Install <code>swtpm</code>. QEMU's Windows build has no TPM emulator backend, so TPM is unavailable on Windows hosts. TPM is offered for x86, ARM64 (<code>virt</code>) and POWER (<code>pseries</code>) guests. Windows&nbsp;11 also needs UEFI firmware.</p>
+            <p>On Linux and macOS, install <code>swtpm</code>. TPM is offered for x86, ARM64 (<code>virt</code>) and POWER (<code>pseries</code>) guests. Windows&nbsp;11 also needs UEFI firmware.</p>
+            <div class="install-warning" role="note" style="max-width: none; margin: 14px 0 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <div>
+                <strong>Windows hosts: TPM is not supported by QEMU.</strong>
+                QEMU's Windows build has no TPM backend, so QEMU itself cannot attach a virtual TPM to a VM on a Windows host. This is a QEMU limitation, not a QEMU Manager bug or a missing setting, and installing <code>swtpm</code> on Windows does not change it. To run a guest that requires TPM&nbsp;2.0, such as Windows&nbsp;11, use a Linux or macOS host.
+              </div>
+            </div>
           </div>
         </div>
         <div class="doc-card">

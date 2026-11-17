@@ -183,7 +183,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           </div>
           <h3>UEFI &amp; TPM 2.0</h3>
-          <p>Give a VM a virtual TPM emulated by <code>swtpm</code>, for Windows&nbsp;11 or BitLocker. TPM keys and UEFI variables live in the VM's folder and carry over to clones.</p>
+          <p>Give a VM a virtual TPM emulated by <code>swtpm</code>, for Windows&nbsp;11 or BitLocker. TPM keys and UEFI variables live in the VM's folder and carry over to clones. <em>Not available on Windows hosts because of a QEMU limitation (<a href="#windows-tpm">details</a>).</em></p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -454,6 +454,13 @@
           </tbody>
         </table>
       </div>
+      <div id="windows-tpm" class="install-warning" role="note" style="max-width: 760px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div>
+          <strong>TPM 2.0 is not available on Windows hosts (a QEMU limitation).</strong>
+          QEMU's Windows build does not include a TPM backend: the <code>emulator</code> backend that connects to <code>swtpm</code> is only compiled for Linux and macOS, so no front end running on Windows can give a VM a virtual TPM. This is a limitation of QEMU itself, not of QEMU Manager, and it will lift if QEMU adds Windows support. UEFI firmware still works on Windows hosts, but for a Windows&nbsp;11 guest that needs a TPM, use a Linux or macOS host.
+        </div>
+      </div>
       <p class="install-note">On Linux, add yourself to the <code>kvm</code> group for hardware acceleration. Bridged networking, PCI passthrough and vmnet need some host setup; see the <a href="support.html#host-setup">host setup notes</a>.</p>
     </div>
   </section>
@@ -504,11 +511,11 @@
         </details>
         <details class="faq-item">
           <summary>Which host operating systems are supported?</summary>
-          <p>macOS (Apple Silicon and Intel), Windows (x64 and ARM64) and Linux (x64 and ARM64). Some features depend on the host: PCI passthrough and virtio-fs are Linux-only, 9p shared folders need a Linux or macOS host, and TPM 2.0 is unavailable on Windows hosts because QEMU's Windows build has no TPM emulator backend.</p>
+          <p>macOS (Apple Silicon and Intel), Windows (x64 and ARM64) and Linux (x64 and ARM64). Some features depend on the host: PCI passthrough and virtio-fs are Linux-only, 9p shared folders need a Linux or macOS host, and TPM 2.0 is unavailable on Windows hosts. That last one is a limitation of QEMU, not QEMU Manager: QEMU's Windows build has no TPM emulator backend (<a href="#windows-tpm">details</a>).</p>
         </details>
         <details class="faq-item">
           <summary>Can I run Windows 11 in it?</summary>
-          <p>Yes. Windows&nbsp;11 needs UEFI firmware and a TPM&nbsp;2.0. Install <code>swtpm</code> on a Linux or macOS host, choose UEFI and add a TPM in the VM's hardware list. On an x86-64 host with KVM, Hypervisor.framework or WHPX it runs with hardware acceleration.</p>
+          <p>Yes. Windows&nbsp;11 needs UEFI firmware and a TPM&nbsp;2.0. TPM is not available on Windows hosts because of a QEMU limitation, so use a Linux or macOS host: install <code>swtpm</code>, choose UEFI and add a TPM in the VM's hardware list. On an x86-64 host with KVM, Hypervisor.framework or WHPX it runs with hardware acceleration.</p>
         </details>
         <details class="faq-item">
           <summary>Will it be fast, or is everything emulated?</summary>
